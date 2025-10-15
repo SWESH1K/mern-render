@@ -39,8 +39,8 @@ app.get('/api/history', (req, res) => {
   res.json(history);
 });
 
-// Serve static assets from client build (client/public)
-const clientBuildPath = path.join(__dirname, '..', 'client', 'public');
+// Serve static assets from the built client inside server/public
+const clientBuildPath = path.join(__dirname, 'public');
 app.use(express.static(clientBuildPath));
 
 // SPA fallback - serve index.html for any unknown route (except /api)
@@ -52,6 +52,7 @@ app.get('*', (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+const HOST = process.env.HOST || '0.0.0.0';
+app.listen(PORT, HOST, () => {
+  console.log(`Server running on http://${HOST}:${PORT}`);
 });

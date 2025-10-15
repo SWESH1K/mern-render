@@ -37,3 +37,21 @@ A simple calculator application built with the MERN stack (MongoDB, Express, Rea
 
 ## Notes
 - This app is for demonstration purposes. The backend uses `eval` for simplicity; do not use this in production.
+
+## Docker (build and run)
+
+This repository includes a multi-stage `Dockerfile` that builds the React client and the Node.js server into a single production image.
+
+Build the image (from the repo root):
+
+```powershell
+docker build -t mern-calculator:latest .
+```
+
+Run the container (map port 5000):
+
+```powershell
+docker run --rm -p 5000:5000 mern-calculator:latest
+```
+
+After the container is running, open http://localhost:5000 to use the app.
