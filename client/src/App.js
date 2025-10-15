@@ -34,7 +34,7 @@ export default function App() {
 			setExpression('');
 			fetchHistory();
 		} catch (err) {
-			setError(err.response?.data?.error || 'Error calculating');
+			// setError(err.response?.data?.error || 'Error calculating');
 		} finally {
 			setIsCalculating(false);
 		}
