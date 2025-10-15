@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const BUTTONS = [
@@ -11,22 +11,8 @@ const BUTTONS = [
 export default function App() {
 	const [expression, setExpression] = useState('');
 	const [result, setResult] = useState(null);
-	const [history, setHistory] = useState([]);
 	const [error, setError] = useState('');
 	const [isCalculating, setIsCalculating] = useState(false);
-
-	useEffect(() => {
-		fetchHistory();
-	}, []);
-
-	const fetchHistory = async () => {
-		try {
-			const res = await axios.get('/api/history');
-			setHistory(res.data);
-		} catch (err) {
-			setHistory([]);
-		}
-	};
 
 	const handleButtonClick = (val) => {
 		setError('');
@@ -138,15 +124,7 @@ export default function App() {
 					</button>
 				</div>
 				<div style={{ background: 'rgba(255,255,255,0.07)', borderRadius: 10, padding: 12, marginTop: 10 }}>
-					<h4 style={{ color: '#fff', margin: '0 0 8px 0', fontWeight: 500, fontSize: 16 }}>History</h4>
-					<ul style={{ paddingLeft: 0, listStyle: 'none', margin: 0, maxHeight: 120, overflowY: 'auto' }}>
-						{history.length === 0 && <li style={{ color: '#bbb', fontSize: 14 }}>No history yet.</li>}
-						{history.map((item, idx) => (
-							<li key={idx} style={{ marginBottom: 4, color: '#fff', fontSize: 15 }}>
-								<span style={{ color: '#b2bec3' }}>{item.expression}</span> = <b>{item.result}</b>
-							</li>
-						))}
-					</ul>
+					{/* History feature removed */}
 				</div>
 			</div>
 		</div>

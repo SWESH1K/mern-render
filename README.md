@@ -4,14 +4,13 @@ A simple calculator application built with the MERN stack (MongoDB, Express, Rea
 
 ## Features
 - Perform basic arithmetic operations: addition, subtraction, multiplication, division
-- Calculation history stored in MongoDB
-- Clean and minimal React UI
+-- Clean and minimal React UI
 
 ## Getting Started
 
 ### Prerequisites
 - Node.js and npm
-- MongoDB (running locally on default port)
+-- Node.js and npm
 
 ### Backend Setup
 1. Open a terminal in the `server` directory:
@@ -33,7 +32,7 @@ A simple calculator application built with the MERN stack (MongoDB, Express, Rea
 
 ## Usage
 - Enter an arithmetic expression (e.g., `2+2*3`) and click Calculate.
-- The result will be displayed, and the last 10 calculations will appear in the history.
+-- The result will be displayed.
 
 ## Notes
 - This app is for demonstration purposes. The backend uses `eval` for simplicity; do not use this in production.

@@ -11,10 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 
-// In-memory history array
-const history = [];
-
-
+// Note: history feature removed
 
 app.post('/api/calculate', (req, res) => {
   const { expression } = req.body;
@@ -26,18 +23,13 @@ app.post('/api/calculate', (req, res) => {
     }
     // eslint-disable-next-line no-eval
     const result = eval(expression);
-    // Store in memory (keep last 10)
-    history.unshift({ expression, result, createdAt: new Date() });
-    if (history.length > 10) history.pop();
+    // history storage removed — just return result
     res.json({ result });
   } catch (err) {
     res.status(400).json({ error: 'Error evaluating expression' });
   }
 });
 
-app.get('/api/history', (req, res) => {
-  res.json(history);
-});
 
 // Serve static assets from the built client inside server/public
 const clientBuildPath = path.join(__dirname, 'public');
